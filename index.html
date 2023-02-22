@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -10,7 +10,81 @@
 <body>
     <script>
     
-        </script>
+        function computerPlay() {
+            let rock = "Rock";
+            let scissors = "Scissors";
+            let paper = "Paper";
+            let getRandomValue = Math.random();
+            //console.log(getRandomValue);
+
+
+            if (getRandomValue <= 0.3333) {
+                //console.log (rock);
+                return rock;
+            } else if (getRandomValue <= 0.6666) {
+                //console.log (scissors)
+                return scissors;
+            } else {
+                //console.log(paper);
+                return paper;
+            }
+        }
+
+ 
+        function playRound(firstLetterCap, computerSelection){
+            let tie = "It is a Tie! You selected " + firstLetterCap + " and the computer selected " + computerSelection + ".";
+            let paperBeatRock = "You Win! You selected " + firstLetterCap + " and the computer selected " + computerSelection + ".";
+            let paperBeatRockLoss = "You Lose! You selected " + firstLetterCap + " and the computer selected " + computerSelection + ".";
+            let scissorBeatPaper = "You Win! You selected " + firstLetterCap + " and the computer selected " + computerSelection + ".";
+            let scissorBearPaperLoss = "You Lose! You selected " + firstLetterCap + " and the computer selected " + computerSelection + ".";
+            let rockBeatScissors = "You Win! You selected " + firstLetterCap + " and the computer selected " + computerSelection + ".";
+            let rockBeatScissorsLoss = "You Lose, You selected " + firstLetterCap + " and the computer selected " + computerSelection + ".";
+
+            
+            
+            
+            if (firstLetterCap === computerSelection){
+                return tie;
+            }else if ((firstLetterCap === "Paper") && (computerSelection === "Rock")){
+                return paperBeatRock;
+            }else if ((firstLetterCap === "Rock") && (computerSelection === "Paper")){
+                return paperBeatRockLoss;
+            }else if ((firstLetterCap === "Scissor") && (computerSelection === "Paper")){
+                return scissorBeatPaper;
+            }else if ((firstLetterCap === "Paper") && (computerSelection === "Scissor")){
+                return scissorBeatPaperLoss;
+            }else if ((firstLetterCap === "Rock") && (computerSelection === "Scissor")){
+                return rockBeatScissors;
+            }else {
+                return rockBeatScissorsLoss;
+            }
+        }
+
+
+
+        // function to format/capitalize the input
+
+
+        function capitalize (playerSelection) {
+            let allLowerCase = playerSelection.toLowerCase();
+            let firstLetterCap = allLowerCase.charAt(0).toUpperCase() + allLowerCase.slice(1);
+            //console.log(firstLetterCap);
+            return firstLetterCap;
+        }
+
+        const playerSelection = "rock";
+        const computerSelection = computerPlay();
+        console.log(playRound(capitalize(playerSelection), computerSelection))
+
+
+
+
+
+
+
+
+
+    </script>
 </body>
     
 
